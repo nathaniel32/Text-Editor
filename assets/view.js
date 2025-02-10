@@ -67,10 +67,10 @@ style.textContent = `
     table {
         border-spacing: 0;
         border: solid 1px black;
+        font-size: inherit;
     }
     td{
         border: solid 0.5px black;
-        font-size: inherit;
     }
 `;
 iframeDoc.head.appendChild(style);
