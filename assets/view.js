@@ -78,6 +78,7 @@ document.getElementById('printButton').addEventListener('click', function() {
 
 function change_font(size){
     fontSizeRef.value = size;
+    console.log(size);
     iframeDoc.body.style.fontSize = `${size}pt`;
 }
 
