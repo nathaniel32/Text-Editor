@@ -48,7 +48,7 @@ style.textContent = `
 
     .thema {
         border: solid 1px black;
-        padding: 1px;
+        padding: 2px;
     }
         
     div{
