@@ -50,6 +50,11 @@ style.textContent = `
         border: solid 1px black;
         padding: 2px;
     }
+
+    ul, ol{
+        padding: 0;
+        margin: 2px 10px;
+    }
         
     div{
         margin: 0;
