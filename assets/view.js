@@ -53,7 +53,7 @@ style.textContent = `
 
     ul, ol{
         padding: 0;
-        margin: 2px 10px;
+        margin: 2px 12px;
     }
         
     div{
