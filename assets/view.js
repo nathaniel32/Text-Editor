@@ -70,6 +70,7 @@ style.textContent = `
     }
     td{
         border: solid 0.5px black;
+        font-size: inherit;
     }
 `;
 iframeDoc.head.appendChild(style);
