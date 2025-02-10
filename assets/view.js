@@ -17,17 +17,17 @@ iframeDoc.head.appendChild(metaViewport);
 
 const style = iframeDoc.createElement('style');
 style.textContent = `
-@media print {
-    @page {
-        size: A4;
-        margin: 0;
-    }
-    body {
-        margin: 0;
-        padding: 0;
-    }
-}
     @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+    @media print {
+        @page {
+            size: A4;
+            margin: 0;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    }
     * {
         scrollbar-width: thin;
         scrollbar-color: #dad3d3 #f0f0f0;
@@ -63,6 +63,13 @@ style.textContent = `
     }
     img{
         width: 100%;
+    }
+    table {
+        border-spacing: 0;
+        border: solid 1px black;
+    }
+    td{
+        border: solid 0.5px black;
     }
 `;
 iframeDoc.head.appendChild(style);

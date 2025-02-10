@@ -12,6 +12,7 @@ const linkName = document.getElementById('linkName');
 const linkType = document.getElementById('linkType');
 
 const imageInput = document.getElementById('imageInput');
+const embedCodeInput = document.getElementById("embedCodeInput");
 const youtubeLinkInput = document.getElementById('youtubeLinkInput');
 
 const newSeite = document.getElementById('newSeite');
@@ -156,10 +157,10 @@ function changeLevel(direction){
 function insertLayout(class_name) { 
   if (writingArea) {
     if (class_name) {
-      writingArea.focus();
       const div = document.createElement("div");
       div.innerHTML = "&ensp;";
       div.className = class_name;
+      writingArea.focus();
       const selection = window.getSelection();
       const range = selection.getRangeAt(0);
       range.deleteContents();
@@ -181,6 +182,12 @@ function insertLayout(class_name) {
         parent.parentNode.insertBefore(div_re, parent.nextSibling);
         div.parentNode.remove();
         console.log("diulang");
+        
+        const newRange = document.createRange();
+        newRange.setStart(div_re, 0);
+        newRange.setEnd(div_re, 0);
+        selection.removeAllRanges();
+        selection.addRange(newRange);
       }else{
         console.log(div.parentNode.className, div.parentNode.children.length)
       }
@@ -199,6 +206,37 @@ function insertLayout(class_name) {
   } else {
     console.log("Elemen writingArea tidak ditemukan.");
   }
+}
+
+//table
+function insertTable() {
+  var numRows = document.getElementById("tablerow").value;
+  var numColumns = document.getElementById("tablecolumn").value;
+  
+  var table = document.createElement("table");
+  
+  for (var i = 0; i < numRows; i++) {
+      var row = table.insertRow(i);
+
+      // Loop untuk setiap kolom
+      for (var j = 0; j < numColumns; j++) {
+        row.insertCell(j);
+        //var cell = row.insertCell(j);
+        //cell.innerHTML = "&nbsp;";
+      }
+  }
+  
+  var divContainer = document.createElement("div");
+  divContainer.classList.add("overflow-auto");
+  divContainer.appendChild(table);
+  
+  //writingArea.appendChild(table);
+  writingArea.focus();
+  const selection = window.getSelection();
+  const range = selection.getRangeAt(0);
+  range.deleteContents();
+  range.insertNode(divContainer);
+  handleInput();
 }
 
 //image
@@ -269,10 +307,9 @@ function getInstagramEmbedUrl() {
     if (match) {
       var code = match[1];
 
-      var InstaEmbedUrl = `<blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/${code}/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14"><a href="${InstaUrl}" target="_blank">(Konten Instagram Ini Akan Muncul Nanti)</a></blockquote><script async src="//www.instagram.com/embed.js"></script>`;
+      var InstaEmbedUrl = `<blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/${code}/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14"><a href="${InstaUrl}" target="_blank">(This Instagram Content Will Appear Later)</a></blockquote><script async src="//www.instagram.com/embed.js"></script>`;
 
       if (writingArea) {
-        writingArea.focus();
         writingArea.innerHTML += InstaEmbedUrl;
         handleInput();
       }else{
@@ -286,24 +323,33 @@ function getInstagramEmbedUrl() {
   }
 }
 
-//Embed Tiktok, Twitter
+//Embed
 function insertEmbedCode() {
-  var embedCodeInput = document.getElementById("embedCodeInput");
-  var embedCode = embedCodeInput.value;
+  if (writingArea) {
+    var embedCode = embedCodeInput.value;
+    writingArea.focus();
+    const selection = window.getSelection();
+    const range = selection.getRangeAt(0);
+    range.deleteContents();
 
-  var twitterRegex = /twitter\.com\/[^/]+\/status\/\d+/;
-  var tiktokRegex = /tiktok\.com\/@[^/]+\/video\/\d+/;
+    // elemen sementara
+    const tempDiv = document.createElement("div");
+    tempDiv.innerHTML = embedCode;
+    const nodes = Array.from(tempDiv.childNodes);
 
-  if (twitterRegex.test(embedCode) || tiktokRegex.test(embedCode)) {
-    if (writingArea) {
-      writingArea.focus();
-      writingArea.innerHTML += embedCode;
-      handleInput();
-    } else {
-      console.log("Elemen writingArea tidak ditemukan.");
+    // child nodes ke range
+    nodes.forEach(node => range.insertNode(node));
+
+    if (nodes.length > 0) {
+      const newRange = document.createRange();
+      newRange.setStartAfter(nodes[nodes.length - 1]);
+      newRange.setEndAfter(nodes[nodes.length - 1]);
+      selection.removeAllRanges();
+      selection.addRange(newRange);
     }
+    handleInput();
   } else {
-    alert("Tautan tidak valid. Embed Hanya untuk Twitter dan TikTok.");
+    console.log("Elemen writingArea tidak ditemukan.");
   }
 }
 

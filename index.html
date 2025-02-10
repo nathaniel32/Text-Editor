@@ -56,13 +56,13 @@
             <i class="fas fa-link"></i>
           </button>
           <div class="dropdown-menu" aria-labelledby="linkDropdown">
-            <input type="text" id="linkUrl" placeholder="Link">
-            <input type="text" id="linkName" placeholder="Nama">
-            <select id="linkType">
+            <input class="form-control" type="text" id="linkUrl" placeholder="Link">
+            <input class="form-control" type="text" id="linkName" placeholder="Nama">
+            <select id="linkType" class="form-control">
               <option value="internal">Internal</option>
               <option value="external">External</option>
             </select>
-            <button onclick="insertLink()"><i class="fas fa-check"></i></button>
+            <button class="btn w-100" onclick="insertLink()"><i class="fas fa-check"></i></button>
           </div>
         </div>
         
@@ -76,8 +76,8 @@
             <i class="fab fa-youtube"></i>
           </button>
           <div class="dropdown-menu" aria-labelledby="youtubeDropdown">
-            <input type="text" id="youtubeLinkInput" placeholder="Link YouTube">
-            <button onclick="insertYouTubeLink()"><i class="fas fa-check"></i></button>
+            <input class="form-control" type="text" id="youtubeLinkInput" placeholder="Link YouTube">
+            <button class="btn w-100" onclick="insertYouTubeLink()"><i class="fas fa-check"></i></button>
           </div>
         </div>
 
@@ -88,8 +88,8 @@
             <i class="fa-brands fa-instagram"></i>
           </button>
           <div class="dropdown-menu" aria-labelledby="instaDropdown">
-            <input type="text" id="InstaUrlInput" placeholder="Instagram Url">
-            <button onclick="getInstagramEmbedUrl()"><i class="fas fa-check"></i></button>
+            <input class="form-control" type="text" id="InstaUrlInput" placeholder="Instagram Url">
+            <button class="btn w-100" onclick="getInstagramEmbedUrl()"><i class="fas fa-check"></i></button>
           </div>
         </div>
 
@@ -99,8 +99,8 @@
             <i class="fa-solid fa-code"></i>
           </button>
           <div class="dropdown-menu" aria-labelledby="embedDropdown">
-            <input type="text" id="embedCodeInput" placeholder="Embed Code">
-            <button onclick="insertEmbedCode()"><i class="fas fa-check"></i></button>
+            <input class="form-control" type="text" id="embedCodeInput" placeholder="Embed Code">
+            <button class="btn w-100" onclick="insertEmbedCode()"><i class="fas fa-check"></i></button>
           </div>
         </div>
 
@@ -110,10 +110,21 @@
             <i class="fas fa-image"></i>
           </button>
           <div class="dropdown-menu" aria-labelledby="imageDropdown">
-            <input type="file" id="imageInput" accept="image/*">
-            <input type="text" id="imageDescription" placeholder="Deskripsi Gambar">
-            <input type="text" id="imageSumber" placeholder="Sumber Gambar">
-            <button onclick="insertImage()"><i class="fas fa-check"></i></button>
+            <input class="form-control" type="file" id="imageInput" accept="image/*">
+            <input class="form-control" type="text" id="imageDescription" placeholder="Deskripsi Gambar">
+            <input class="form-control" type="text" id="imageSumber" placeholder="Sumber Gambar">
+            <button class="btn w-100" onclick="insertImage()"><i class="fas fa-check"></i></button>
+          </div>
+        </div>
+
+        <div class="insert-dropdown">
+          <button id="tableDropdown" data-bs-toggle="dropdown">
+            <i class="fa-solid fa-table-cells-large"></i>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="tableDropdown">
+            <input class="form-control" min=1 type="number" id="tablerow" placeholder="Row">
+            <input class="form-control" min=1 type="number" id="tablecolumn" placeholder="Column">
+            <button class="btn h-100 w-100" onclick="insertTable()"><i class="fas fa-check"></i></button>
           </div>
         </div>
 
