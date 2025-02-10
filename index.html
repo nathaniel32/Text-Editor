@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spicker</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="assets/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css"/>
+    <link rel="shortcut icon" href="assets/icon.ico" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+  </head>
+  <body>
+    <div class="container_main">
+      <div class="options">
+        <!-- Text Format -->
+        <button id="bold" class="option-button format">
+          <i class="fa-solid fa-bold"></i>
+        </button>
+        <button id="italic" class="option-button format">
+          <i class="fa-solid fa-italic"></i>
+        </button>
+        <button id="underline" class="option-button format">
+          <i class="fa-solid fa-underline"></i>
+        </button>
+        <button id="strikethrough" class="option-button format">
+          <i class="fa-solid fa-strikethrough"></i>
+        </button>
+        <button id="superscript" class="option-button script">
+          <i class="fa-solid fa-superscript"></i>
+        </button>
+        <button id="subscript" class="option-button script">
+          <i class="fa-solid fa-subscript"></i>
+        </button>
+
+        <!-- List -->
+        <button id="insertOrderedList" class="option-button">
+          <div class="fa-solid fa-list-ol"></div>
+        </button>
+        <button id="insertUnorderedList" class="option-button">
+          <i class="fa-solid fa-list"></i>
+        </button>
+
+        <!-- Undo/Redo -->
+        <button id="undo" class="option-button">
+          <i class="fa-solid fa-rotate-left"></i>
+        </button>
+        <button id="redo" class="option-button">
+          <i class="fa-solid fa-rotate-right"></i>
+        </button>
+
+        <!-- Link -->
+        <div class="insert-dropdown">
+          <button id="linkDropdown" data-bs-toggle="dropdown">
+            <i class="fas fa-link"></i>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="linkDropdown">
+            <input type="text" id="linkUrl" placeholder="Link">
+            <input type="text" id="linkName" placeholder="Nama">
+            <select id="linkType">
+              <option value="internal">Internal</option>
+              <option value="external">External</option>
+            </select>
+            <button onclick="insertLink()"><i class="fas fa-check"></i></button>
+          </div>
+        </div>
+        
+        <button id="unlink" class="option-button">
+          <i class="fa fa-unlink"></i>
+        </button>
+
+        <!-- YouTube Video Insertion Dropdown -->
+        <div class="insert-dropdown">
+          <button id="youtubeDropdown" data-bs-toggle="dropdown">
+            <i class="fab fa-youtube"></i>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="youtubeDropdown">
+            <input type="text" id="youtubeLinkInput" placeholder="Link YouTube">
+            <button onclick="insertYouTubeLink()"><i class="fas fa-check"></i></button>
+          </div>
+        </div>
+
+        <!-- Insta Url Embed-->
+
+        <div class="insert-dropdown">
+          <button id="instaDropdown" data-bs-toggle="dropdown">
+            <i class="fa-brands fa-instagram"></i>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="instaDropdown">
+            <input type="text" id="InstaUrlInput" placeholder="Instagram Url">
+            <button onclick="getInstagramEmbedUrl()"><i class="fas fa-check"></i></button>
+          </div>
+        </div>
+
+        <!-- Embed -->
+        <div class="insert-dropdown">
+          <button id="embedDropdown" data-bs-toggle="dropdown">
+            <i class="fa-solid fa-code"></i>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="embedDropdown">
+            <input type="text" id="embedCodeInput" placeholder="Embed Code">
+            <button onclick="insertEmbedCode()"><i class="fas fa-check"></i></button>
+          </div>
+        </div>
+
+        <!-- Image Insertion Dropdown -->
+        <div class="insert-dropdown">
+          <button id="imageDropdown" data-bs-toggle="dropdown">
+            <i class="fas fa-image"></i>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="imageDropdown">
+            <input type="file" id="imageInput" accept="image/*">
+            <input type="text" id="imageDescription" placeholder="Deskripsi Gambar">
+            <input type="text" id="imageSumber" placeholder="Sumber Gambar">
+            <button onclick="insertImage()"><i class="fas fa-check"></i></button>
+          </div>
+        </div>
+
+        <!-- Alignment -->
+        <button id="justifyLeft" class="option-button align">
+          <i class="fa-solid fa-align-left"></i>
+        </button>
+        <button id="justifyCenter" class="option-button align">
+          <i class="fa-solid fa-align-center"></i>
+        </button>
+        <button id="justifyRight" class="option-button align">
+          <i class="fa-solid fa-align-right"></i>
+        </button>
+        <button id="justifyFull" class="option-button align">
+          <i class="fa-solid fa-align-justify"></i>
+        </button>
+        <button id="indent" class="option-button spacing">
+          <i class="fa-solid fa-indent"></i>
+        </button>
+        <button id="outdent" class="option-button spacing">
+          <i class="fa-solid fa-outdent"></i>
+        </button>
+
+        <button onclick="insertLayout('thema')">
+          <i class="fa-regular fa-square"></i>
+        </button>
+        <button onclick="insertLayout('barrier')">
+          <i class="fa-solid fa-road-barrier"></i>
+        </button>
+        <button onclick="insertLayout('seite')">
+          <i class="fa-regular fa-file"></i>
+        </button>
+
+        <button onclick="changeLevel('up')">
+          <i class="fa-solid fa-arrow-turn-up"></i>
+        </button>
+
+        <button onclick="changeLevel('down')">
+          <i class="fa-solid fa-arrow-turn-down"></i>
+        </button>
+
+        <!-- Headings -->
+        <select id="formatBlock" class="adv-option-button"></select>
+
+        <!-- Font -->
+        <select id="fontName" class="adv-option-button"></select>
+        <!-- <select id="fontSize" class="adv-option-button"></select> -->
+
+        <select id="fontSize"></select>
+
+        <!-- Color -->
+        <div class="input-wrapper">
+          <input type="color" id="foreColor" class="adv-option-button" />
+          <label for="foreColor">Font</label>
+        </div>
+        <div class="input-wrapper">
+          <input type="color" id="backColor" class="adv-option-button" />
+          <label for="backColor">Highlight</label>
+        </div>
+        <button id="downloadButton">
+          <i class="fa-solid fa-download"></i>
+        </button>
+        <button id="printButton">
+          <i class="fa-solid fa-print"></i>
+        </button>
+      </div>
+      <div class="container_text" data-not-workbench="true">
+        <iframe id="editor-view" frameborder="0"></iframe>
+        <div id="text-input" contenteditable="true"></div>
+        <button id="toggle_left" onclick="toggleDisplay(1)"><i class="fa-solid fa-plus-minus"></i></button>
+        <button id="toggle_right" onclick="toggleDisplay(2)"><i class="fa-solid fa-plus-minus"></i></button>
+      </div>
+    </div>
+    <script src="assets/base.js"></script>
+    <script src="assets/view.js"></script>
+    <script src="assets/script.js"></script>
+  </body>
+</html>
+
+<!-- 
+cara masuk lebih dalam ke block => thema/barrierer/site 
+1. tulis text didalam block
+2. tombol row down ditengah text
+3. isi text 
+
+cara keluar dari block
+1. clock row down 2x
+-->
