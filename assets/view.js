@@ -42,7 +42,7 @@ style.textContent = `
     }
     .barrier {
         display: table-cell;
-        width: 33.333%;
+        width: 25%;
         vertical-align: top;
     }
 
