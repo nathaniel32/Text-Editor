@@ -66,11 +66,11 @@ style.textContent = `
     }
     table {
         border-spacing: 0;
-        border: solid 1px black;
+        border: solid 0.20px black;
         font-size: inherit;
     }
     td{
-        border: solid 0.5px black;
+        border: solid 0.20px black;
     }
 `;
 iframeDoc.head.appendChild(style);
