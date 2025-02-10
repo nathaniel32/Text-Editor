@@ -44,16 +44,6 @@ writingArea.addEventListener('input', function() {
     handleInput();
 });
 
-window.addEventListener('load', function() {
-    const storedHtml = localStorage.getItem('spicker_html');
-    const storedSize = localStorage.getItem('spicker_font');
-    change_font(storedSize);
-    if (storedHtml) {
-        writingArea.innerHTML = storedHtml;
-        handleInput();
-    }
-});
-
 document.addEventListener("keydown", function (event) {
     if ((event.ctrlKey || event.shiftKey) && event.key === "Enter") {
         event.preventDefault();

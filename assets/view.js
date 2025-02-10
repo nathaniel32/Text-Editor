@@ -77,6 +77,7 @@ document.getElementById('printButton').addEventListener('click', function() {
 });
 
 function change_font(size){
+    fontSizeRef.value = size;
     iframeDoc.body.style.fontSize = `${size}pt`;
 }
 
@@ -89,3 +90,15 @@ function toggleDisplay(type) {
     let target = type === 1 ? iframe : writingArea;
     target.style.display = target.style.display === "none" ? "block" : "none";
 }
+
+window.addEventListener('load', function() {
+    const storedHtml = localStorage.getItem('spicker_html');
+    const storedSize = localStorage.getItem('spicker_font');
+    if (storedHtml) {
+        change_font(storedSize);
+    }
+    if (storedHtml) {
+        writingArea.innerHTML = storedHtml;
+        handleInput();
+    }
+});
