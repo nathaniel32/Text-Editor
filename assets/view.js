@@ -78,7 +78,6 @@ document.getElementById('printButton').addEventListener('click', function() {
 
 function change_font(size){
     fontSizeRef.value = size;
-    console.log(size);
     iframeDoc.body.style.fontSize = `${size}pt`;
 }
 
@@ -95,7 +94,7 @@ function toggleDisplay(type) {
 window.addEventListener('load', function() {
     const storedHtml = localStorage.getItem('spicker_html');
     const storedSize = localStorage.getItem('spicker_font');
-    if (storedHtml) {
+    if (storedSize) {
         change_font(storedSize);
     }
     if (storedHtml) {
