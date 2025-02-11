@@ -326,7 +326,8 @@ function getInstagramEmbedUrl() {
 //Embed
 function insertEmbedCode() {
   if (writingArea) {
-    var embedCode = embedCodeInput.value;
+    writingArea.innerHTML += embedCodeInput.value;
+    /* var embedCode = embedCodeInput.value;
     writingArea.focus();
     const selection = window.getSelection();
     const range = selection.getRangeAt(0);
@@ -346,7 +347,7 @@ function insertEmbedCode() {
       newRange.setEndAfter(nodes[nodes.length - 1]);
       selection.removeAllRanges();
       selection.addRange(newRange);
-    }
+    } */
     handleInput();
   } else {
     console.log("Elemen writingArea tidak ditemukan.");
