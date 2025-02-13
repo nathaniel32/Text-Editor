@@ -1,0 +1,27 @@
+<div id="container">
+    <p>Konten awal</p>
+</div>
+
+<button onclick="tambahElemen()">Tambah Elemen</button>
+
+<style>
+    #container {
+        width: 300px;
+        height: 100px;
+        overflow: auto;
+        border: 1px solid black;
+    }
+</style>
+
+<script>
+    function tambahElemen() {
+        let container = document.getElementById("container");
+        let elemenBaru = document.createElement("p");
+        elemenBaru.textContent = "Elemen baru";
+        container.appendChild(elemenBaru);
+
+        if (container.scrollHeight > container.clientHeight) {
+            alert("Overflow terjadi!");
+        }
+    }
+</script>

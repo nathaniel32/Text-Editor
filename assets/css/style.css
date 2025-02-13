@@ -1,0 +1,178 @@
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #dad3d3 #f0f0f0;
+}
+.container_main{
+  padding: 10px;
+  max-height: 100vh;
+}
+.container_text {
+  position: relative;
+  background-color: #d4bfbf;
+  box-shadow: 0 25px 50px rgba(7, 20, 35, 0.2);
+  margin-top: 10px;
+  padding: 3px;
+  display: flex;
+  gap: 3px;
+  height: 90vh;
+  overflow: hidden;
+}
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+  font-size: 10pt;
+  font-weight: 600;
+}
+.options button {
+  height: 28px;
+  width: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 3px;
+  border: none;
+  background-color: #ffffff;
+  outline: none;
+  color: #020929;
+}
+select {
+  padding: 1px;
+  border: 1px solid #020929;
+  border-radius: 3px;
+  outline: none;
+}
+.options label,
+.options select {
+  font-family: "Poppins", sans-serif;
+}
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+input[type="color"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  width: 20px;
+  height: 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  overflow: hidden;
+  padding: 0;
+  border: 0.1px solid rgba(0, 0, 0, 0.246);
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+input[type="color"]::-moz-color-swatch {
+  box-shadow: 0 0 0 2px #ffffff, 0 0 0 3px #020929;
+}
+input[type="color"]::-webkit-color-swatch {
+  border: none;
+}
+.active {
+  background-color: #e0e9ff;
+}
+img{
+  width: 200px;
+  height: 120px;
+}
+
+#editor_area{
+  width: 100%;
+  min-width: 65%;
+  display: flex;
+  flex-direction: column;
+}
+
+#text-input {
+  height: 94%;
+  width: 100%;
+  border: 1px solid #dddddd;
+  background-color: rgb(255, 255, 255);
+  padding: 10px;
+  overflow: auto;
+  outline: none;
+}
+
+#editor-view{
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid #dddddd;
+}
+
+#input_button{
+  width: 100%;
+  height: 6%;
+  display: grid;
+  place-items: center;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border: none;
+  background-color: #e4d3d3;
+  outline: none;
+  color: #020929;
+  font-weight: 600;
+}
+
+#input_button:hover{
+  background-color: #dbc8c8;
+  transition: background-color 0.25s ease-in;
+}
+
+#toggle_right, #toggle_left{
+  top: 50%;
+  position: absolute;
+  transform: translateY(-50%);
+  background: #a3afba57;
+  color: rgb(75, 69, 69);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#toggle_left{
+  left: 5px;
+}
+
+#toggle_right{
+  right: 5px;
+}
+
+td {
+  border: solid 1px black !important;
+  min-width: 50px;
+  height: 30px;
+}
+
+.dropdown-menu{
+  padding: 5px !important;
+}
