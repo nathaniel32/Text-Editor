@@ -3,4 +3,4 @@
 - Bearbeiten: Inhalte flexibel anpassen
 - Speichern & Exportieren: Spickzettel als PDF oder HTML speichern
 
-[Link](https://nathaniel32.github.io/Spickzettel-Editor/)
+[Link](https://nathaniel32.github.io/Cheat-Sheet-Editor/)
