@@ -1,2 +1,2 @@
-# 📝 Text Editor (Cheat Sheet Editor)
+# 📝 Text Editor
 🔗 **Live-Demo:** [Hier klicken](https://nathaniel32.github.io/Cheat-Sheet-Editor/)
