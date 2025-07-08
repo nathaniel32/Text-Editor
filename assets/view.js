@@ -46,6 +46,10 @@ style.textContent = `
         vertical-align: top;
     }
 
+    .thema:nth-child(even) {
+        background-color:hsl(0, 10%, 90%);
+    }
+
     .thema {
         border: solid 1px black;
         padding: 2px;
