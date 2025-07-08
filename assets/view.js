@@ -47,7 +47,7 @@ style.textContent = `
     }
 
     .thema:nth-child(even) {
-        background-color:hsla(60, 100.00%, 52.00%, 0.1);
+        background-color:hsla(60, 100.00%, 52.00%, 0.2);
     }
 
     .thema {
